@@ -24,7 +24,7 @@ public class Lexer {
         ch = source.read();
     }
 
-/*
+
     public static void main(String args[]) {
         Token tok;
         try {
@@ -37,11 +37,11 @@ public class Lexer {
                 if ((tok.getKind() == Tokens.Identifier) ||
                     (tok.getKind() == Tokens.INTeger))
                     p += tok.toString();
-                System.out.println(p + ": "+lex.source.getLineno());
+                System.out.println(p + " line: "+lex.source.getLineno());
             }
         } catch (Exception e) {}
     }
-*/
+
  
 /**
  *  newIdTokens are either ids or reserved words; new id's will be inserted
