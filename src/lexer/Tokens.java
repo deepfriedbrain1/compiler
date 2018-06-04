@@ -10,5 +10,6 @@ public enum Tokens {
     Identifier,INTeger,LeftBrace,RightBrace,LeftParen,
     RightParen,Comma,Assign,Equal,NotEqual,
     Less,LessEqual,Plus,Minus,Or,
-    And,Multiply,Divide,Comment
+    And,Multiply,Divide,Comment,GreaterThan,
+    Void,Float
 }

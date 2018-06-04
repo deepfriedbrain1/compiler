@@ -36,5 +36,8 @@ public class TokenType {
      tokens.put(Tokens.Multiply, Symbol.symbol("*",Tokens.Multiply));
      tokens.put(Tokens.Divide, Symbol.symbol("/",Tokens.Divide));
      tokens.put(Tokens.Comment, Symbol.symbol("//",Tokens.Comment));
+     tokens.put(Tokens.GreaterThan, Symbol.symbol(">",Tokens.GreaterThan));
+     tokens.put(Tokens.Void, Symbol.symbol("void",Tokens.Void));
+     tokens.put(Tokens.Float, Symbol.symbol("float",Tokens.Float));
    }
 }

@@ -26,3 +26,6 @@ And &
 Multiply *
 Divide /
 Comment //
+GreaterThan >
+Void void
+Float float
