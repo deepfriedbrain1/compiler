@@ -30,26 +30,30 @@ public class Lexer {
         Token tok;
         Lexer lex;
         try {
-            lex = new Lexer(args[0]);
-            int currentProgramLine = 0;
-            
-            while (true) {
-                tok = lex.nextToken();
-                if(tok == null)
-                    programReadOut += lex.source.toString();
-                tok.setLineNo(lex.source.getLineno());
-               
-            // Printout uses Token's getLineNo method to retrieve current Token's line #
-            System.out.format("%-8s%8s%2d%8s%2d%7s%2d\n",
-            tok.toString(),"left:",tok.getLeftPosition(),
-            "right:",tok.getRightPosition(),"line:",tok.getLineNo());
-                
+            if(args.length == 0){
+                System.out.println("***Incorrect usage, try: java -jar lexer.Lexer <file>");
+                System.exit(1);
             }
-        } catch (Exception e) {
+            else{
+                lex = new Lexer(args[0]);
+                while (true) {
+                    tok = lex.nextToken();
+                    if(tok == null)
+                        programReadOut += lex.source.toString();
+                    tok.setLineNo(lex.source.getLineno());
+               
+                    // Printout uses Token's getLineNo method to retrieve current Token's line #
+                    System.out.format("%-8s%8s%2d%8s%2d%7s%2d\n",
+                    tok.toString(),"left:",tok.getLeftPosition(),
+                    "right:",tok.getRightPosition(),"line:",tok.getLineNo());
+                }//end while   
+            } 
+        }catch (Exception e) {
             //once tokens are done being read, printout programReadOut
             printProgramReadOut();
             System.out.println();
         }
+        
     }
     
     // Prints out the current program debug readout

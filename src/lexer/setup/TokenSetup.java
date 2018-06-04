@@ -17,6 +17,7 @@ public class TokenSetup {
     private BufferedReader in;
     private PrintWriter table, symbols; // files used for new classes
 
+    /*
     public static void main(String args[]) {
         new TokenSetup().initTokenClasses();
     }
@@ -32,7 +33,8 @@ public class TokenSetup {
         	System.out.println(e);
         }
     }
-
+    */
+    
 /**
  *  read next line which contains token information;<br>
  *  each line will contain the token type used in lexical analysis and

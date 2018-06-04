@@ -15,6 +15,7 @@ public class SourceReader {
                              // so read in the next line
     private String nextLine;
 
+    /*
     public static void main(String args[]) {
         SourceReader s = null;
         try {
@@ -30,7 +31,7 @@ public class SourceReader {
             s.close();
         }
     }
-
+    */
 
 /**
  *  Construct a new SourceReader
