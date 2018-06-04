@@ -14,7 +14,8 @@ public class Lexer {
     private boolean atEOF = false;
     private char ch;     // next character to process
     private SourceReader source;
-    
+    // will contian the current read program including illegal character
+    private static String programReadOut = ""; 
     // positions in line of current token
     private int startPosition, endPosition; 
 
@@ -27,19 +28,34 @@ public class Lexer {
 
     public static void main(String args[]) {
         Token tok;
+        Lexer lex;
         try {
-            Lexer lex = new Lexer("simple.x");
+            lex = new Lexer(args[0]);
+            int currentProgramLine = 0;
+            
             while (true) {
                 tok = lex.nextToken();
-                String p = "L: " + tok.getLeftPosition() +
-                   " R: " + tok.getRightPosition() + "  " +
-                   TokenType.tokens.get(tok.getKind()) + " ";
-                if ((tok.getKind() == Tokens.Identifier) ||
-                    (tok.getKind() == Tokens.INTeger))
-                    p += tok.toString();
-                System.out.println(p + " line: "+lex.source.getLineno());
+                if(tok == null)
+                    programReadOut += lex.source.toString();
+                tok.setLineNo(lex.source.getLineno());
+               
+            // Printout uses Token's getLineNo method to retrieve current Token's line #
+            System.out.format("%-8s%8s%2d%8s%2d%7s%2d\n",
+            tok.toString(),"left:",tok.getLeftPosition(),
+            "right:",tok.getRightPosition(),"line:",tok.getLineNo());
+                
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            //once tokens are done being read, printout programReadOut
+            printProgramReadOut();
+            System.out.println();
+        }
+    }
+    
+    // Prints out the current program debug readout
+    private static void printProgramReadOut()
+    {
+        System.out.print(programReadOut);
     }
 
  

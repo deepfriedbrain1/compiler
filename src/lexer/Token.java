@@ -10,6 +10,7 @@ package lexer;
 public class Token {
   private int leftPosition,rightPosition;
   private Symbol symbol;
+  private int lineNo;
 
 /**
  *  Create a new Token based on the given Symbol
@@ -51,6 +52,16 @@ public class Token {
 */
   public Tokens getKind() {
     return symbol.getKind();
+  }
+  
+  protected void setLineNo(int lineno)
+  {
+    lineNo = lineno;
+  }
+    
+  protected int getLineNo()
+  {
+    return lineNo;
   }
 }
 

@@ -14,11 +14,11 @@ public class SourceReader {
     private boolean isPriorEndLine = true;  // if true then last character read was newline
                              // so read in the next line
     private String nextLine;
-/*
+
     public static void main(String args[]) {
         SourceReader s = null;
         try {
-            s = new SourceReader("t");
+            s = new SourceReader("simple.x");
             while (true) {
                 char ch = s.read();
                 System.out.println("Char: " + ch + " Line: " + s.lineno +
@@ -30,7 +30,7 @@ public class SourceReader {
             s.close();
         }
     }
-*/
+
 
 /**
  *  Construct a new SourceReader
