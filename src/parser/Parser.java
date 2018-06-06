@@ -140,7 +140,8 @@ public class Parser {
     }
 
     boolean startingDecl() {
-        if (isNextTok(Tokens.Int) || isNextTok(Tokens.BOOLean)) {
+        if (isNextTok(Tokens.Int) || isNextTok(Tokens.BOOLean) || 
+            isNextTok(Tokens.Float) || isNextTok(Tokens.Void)) {
             return true;
         }
         return false;
@@ -155,8 +156,7 @@ public class Parser {
     }
 
     /**
-     * <
-     * pre>
+     * <pre>
      * d -> type name ==> decl -> type name funcHead block ==> functionDecl
      * </pre>
      *
@@ -180,16 +180,25 @@ public class Parser {
     /**
      * <
      * pre>
-     * type -> 'int' type -> 'bool'
+     * type -> 'int' 
+     * type -> 'bool'
+     * type -> 'float'
+     * type -> 'void'
      * </pre>
      *
-     * @return either the intType or boolType tree
+     * @return either the intType or floatType or voidType or boolType tree
      * @exception SyntaxError - thrown for any syntax error
      */
     public AST rType() throws SyntaxError {
         AST t;
         if (isNextTok(Tokens.Int)) {
             t = new IntTypeTree();
+            scan();
+        }if(isNextTok(Tokens.Float)){
+            t = new FloatTypeTree();
+            scan();
+        }if(isNextTok(Tokens.Void)){
+            t = new VoidTypeTree();
             scan();
         } else {
             expect(Tokens.BOOLean);

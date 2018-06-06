@@ -11,5 +11,5 @@ public enum Tokens {
     RightParen,Comma,Assign,Equal,NotEqual,
     Less,LessEqual,Plus,Minus,Or,
     And,Multiply,Divide,Comment,GreaterThan,
-    Void,Float
+    Void,Float,SemiColon
 }

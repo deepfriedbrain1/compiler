@@ -39,5 +39,6 @@ public class TokenType {
      tokens.put(Tokens.GreaterThan, Symbol.symbol(">",Tokens.GreaterThan));
      tokens.put(Tokens.Void, Symbol.symbol("void",Tokens.Void));
      tokens.put(Tokens.Float, Symbol.symbol("float",Tokens.Float));
+     tokens.put(Tokens.SemiColon, Symbol.symbol(";",Tokens.SemiColon));
    }
 }
